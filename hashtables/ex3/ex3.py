@@ -3,7 +3,16 @@ def intersection(arrays):
     YOUR CODE HERE
     """
     # Your code here
-
+    cache = {}
+    result = []
+    for array in arrays:
+        for el in array:
+            if el not in cache:
+                cache[el] = 0
+            cache[el] += 1
+    for el, count in cache.items():
+        if count == len(arrays):
+            result.append(int(el))
     return result
 
 
